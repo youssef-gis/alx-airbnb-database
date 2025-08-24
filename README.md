@@ -32,3 +32,51 @@ This project leverages a modern, robust set of technologies chosen for their sca
 | **React** | A JavaScript library for building dynamic and interactive user interfaces. It is used to construct the frontend client, creating reusable UI components and managing the application's state efficiently. |
 | **Docker** | A platform used to develop, ship, and run applications inside lightweight, portable containers. It is used to ensure consistency across development, staging, and production environments and to simplify deployment. |
 | **AWS (Amazon Web Services)** | A cloud computing platform. It is used to host the application's infrastructure, including virtual servers (EC2), database instances (RDS), and storage solutions (S3), providing scalability and reliability. |
+
+
+## Database Design
+
+This section outlines the core entities (database tables) for the project, their key fields, and the relationships between them.
+
+### Key Entities & Relationships
+
+*   **Users**
+    *   `id` (Primary Key)
+    *   `email`
+    *   `first_name`
+    *   `last_name`
+    *   `hashed_password`
+    *   *Relationships*: A User can have multiple Properties (as a host) and can make multiple Bookings (as a guest). A User can also write multiple Reviews.
+
+*   **Properties**
+    *   `id` (Primary Key)
+    *   `title`
+    *   `description`
+    *   `price_per_night`
+    *   `host_id` (Foreign Key to Users)
+    *   *Relationships*: A Property belongs to one User (the host). A Property can have multiple Bookings and multiple Reviews.
+
+*   **Bookings**
+    *   `id` (Primary Key)
+    *   `start_date`
+    *   `end_date`
+    *   `total_price`
+    *   `guest_id` (Foreign Key to Users)
+    *   `property_id` (Foreign Key to Properties)
+    *   *Relationships*: A Booking belongs to one User (the guest) and belongs to one Property.
+
+*   **Reviews**
+    *   `id` (Primary Key)
+    *   `rating`
+    *   `comment`
+    *   `author_id` (Foreign Key to Users)
+    *   `property_id` (Foreign Key to Properties)
+    *   *Relationships*: A Review belongs to one User (the author) and belongs to one Property.
+
+*   **Payments**
+    *   `id` (Primary Key)
+    *   `amount`
+    *   `status` (e.g., pending, completed, failed)
+    *   `booking_id` (Foreign Key to Bookings)
+    *   `payment_intent_id` (from payment processor like Stripe)
+    *   *Relationships*: A Payment is linked to one Booking.

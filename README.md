@@ -130,3 +130,22 @@ Securing our backend APIs is paramount to protecting our users, their data, and 
 *   **Maintaining Platform Integrity:** Rate limiting and input validation protect the platform from being overwhelmed or manipulated by malicious attacks, ensuring it remains stable and reliable for legitimate users.
 
 *   **Preventing Unauthorized Actions:** Proper authorization ensures that users can only perform actions they are permitted to do (e.g., a user cannot cancel another user's booking), which is fundamental to the platform's correct and fair operation.
+
+
+## CI/CD Pipeline
+
+### What is CI/CD?
+
+CI/CD (Continuous Integration and Continuous Deployment) is a modern software development practice that automates the process of integrating code changes and deploying applications. **Continuous Integration (CI)** automatically builds and tests every change pushed to the main code repository. **Continuous Deployment (CD)** automatically deploys every change that passes the CI tests to a staging or production environment.
+
+### Importance for This Project
+
+Implementing a CI/CD pipeline is crucial for maintaining code quality, accelerating development velocity, and ensuring reliable deployments. It automatically catches bugs and integration issues early through automated testing, provides a consistent and repeatable process for releasing updates, and allows the team to deliver new features to users quickly and safely.
+
+### Tools for Our Pipeline
+
+*   **GitHub Actions:** To define and execute our CI/CD workflows directly from our GitHub repository. It will handle running tests, building containers, and triggering deployments on every code push or pull request.
+*   **Docker:** To containerize the application, ensuring that it runs consistently across all environments (development, testing, production).
+*   **Docker Hub / Amazon ECR:** A registry to store our built Docker images, making them available for deployment.
+*   **AWS ECS / Kubernetes:** Orchestration services to deploy and manage our containerized application in the cloud.
+*   **SonarCloud / CodeCov:** Optional tools for automated code quality analysis and test coverage reporting, integrated into the CI process.

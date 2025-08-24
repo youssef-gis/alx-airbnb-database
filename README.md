@@ -102,3 +102,31 @@ This project encompasses the core functionality of a rental marketplace, broken 
 
 *   **Payment Processing**
     This integrated feature securely handles financial transactions, allowing guests to pay for their bookings using credit cards or other payment methods. It ensures a smooth and trustworthy monetary exchange on the platform.
+
+
+
+## API Security
+
+Securing our backend APIs is paramount to protecting our users, their data, and the integrity of our platform. We will implement the following key security measures:
+
+### Key Security Measures
+
+*   **Authentication (JWT Tokens):** We will use JSON Web Tokens (JWT) to securely authenticate users. Upon login, a user receives a signed token that must be included in subsequent requests to access protected endpoints, verifying their identity.
+
+*   **Authorization (Role-Based Access Control - RBAC):** Beyond authentication, we will implement authorization to control what authenticated users can do. For example, a user can only edit or delete their own property listings, and only an admin user might have access to certain administrative endpoints.
+
+*   **Rate Limiting:** We will implement rate limiting on our APIs to protect against Denial-of-Service (DoS) and brute-force attacks. This restricts the number of requests a client can make to the API within a specific time window, ensuring stability and availability for all users.
+
+*   **Data Sanitization & Validation:** All user input will be rigorously validated and sanitized on the backend to prevent common vulnerabilities like SQL Injection and Cross-Site Scripting (XSS). Django's built-in form and model validation provide a strong foundation for this.
+
+*   **HTTPS Encryption:** All data in transit between the client and our server will be encrypted using HTTPS. This ensures that sensitive information, like login credentials and payment details, cannot be intercepted and read by malicious actors.
+
+### Why Security is Crucial
+
+*   **Protecting User Data:** Implementing strong authentication and authorization is crucial to prevent unauthorized access to personally identifiable information (PII), protecting our users' privacy and complying with regulations like GDPR.
+
+*   **Securing Payments:** The payment processing feature handles highly sensitive financial data. HTTPS encryption and secure backend practices are non-negotiable to prevent data breaches and maintain trust with our users.
+
+*   **Maintaining Platform Integrity:** Rate limiting and input validation protect the platform from being overwhelmed or manipulated by malicious attacks, ensuring it remains stable and reliable for legitimate users.
+
+*   **Preventing Unauthorized Actions:** Proper authorization ensures that users can only perform actions they are permitted to do (e.g., a user cannot cancel another user's booking), which is fundamental to the platform's correct and fair operation.

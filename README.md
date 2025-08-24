@@ -80,3 +80,25 @@ This section outlines the core entities (database tables) for the project, their
     *   `booking_id` (Foreign Key to Bookings)
     *   `payment_intent_id` (from payment processor like Stripe)
     *   *Relationships*: A Payment is linked to one Booking.
+
+## Feature Breakdown
+
+This project encompasses the core functionality of a rental marketplace, broken down into the following key features:
+
+*   **User Authentication & Management**
+    This feature allows users to securely create an account, log in, and manage their personal profiles. It forms the foundation of the platform by ensuring secure access to personalized features and protecting user data.
+
+*   **Property Listings & Management**
+    This enables hosts to create, view, update, and delete property listings with details like descriptions, photos, prices, and availability. It is the core inventory system of the platform, providing the bookable assets for guests.
+
+*   **Search & Discovery**
+    Users can browse and filter available properties based on criteria like location, dates, price range, and amenities. This feature drives engagement and bookings by helping guests easily find properties that match their needs.
+
+*   **Booking System**
+    This core functionality allows authenticated guests to reserve a property for specific dates, calculates the total cost, and handles availability conflicts. It facilitates the main transaction between the guest and the host.
+
+*   **Reviews & Ratings**
+    After a stay, guests can leave public reviews and ratings for a property and its host. This builds trust and community within the platform by providing valuable feedback for future guests and hosts.
+
+*   **Payment Processing**
+    This integrated feature securely handles financial transactions, allowing guests to pay for their bookings using credit cards or other payment methods. It ensures a smooth and trustworthy monetary exchange on the platform.

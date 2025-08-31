@@ -1,12 +1,13 @@
--- Enable extension for UUID generation
+-- Enable extension 
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+CREATE EXTENSION IF NOT EXISTS citext;
 
 -- USER Table
 CREATE TABLE users (
   user_id UUID PRIMARY KEY DEFAULT gen_random_uuid (),
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
-  email VARCHAR(255) NOT NULL UNIQUE,
+  email CITEXT NOT NULL UNIQUE,
   password_hash VARCHAR(255) NOT NULL,
   phone_number VARCHAR(20),
   role VARCHAR(20) NOT NULL CHECK (role IN ('host', 'guest', 'admin')),

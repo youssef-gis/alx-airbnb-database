@@ -1,3 +1,3 @@
 # AirBnB Database ER Diagram
 
-![AirBnB ER Diagram](ERD/AirBnb_ERD.png)
+![AirBnB ER Diagram](./AirBnb_ERD.png)
